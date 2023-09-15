@@ -319,11 +319,15 @@ let closeMenu = document.querySelector('.close_menu')
 let menu = document.querySelector('.bought')
 
 openMenu.onclick = () => {
-    menu.classList.remove('hide')
     menu.classList.add('open_animation')
+    menu.classList.remove('closing_animation')
+    setTimeout(() => {
+        menu.classList.remove('hide')
+    }, 100);
 }
 closeMenu.onclick = () => {
     menu.classList.add('closing_animation')
+    menu.classList.remove('open_animation')
     setTimeout(() => {
         menu.classList.add('hide')
     }, 2000);
